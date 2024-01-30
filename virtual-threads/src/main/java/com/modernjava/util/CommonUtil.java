@@ -44,4 +44,9 @@ public class CommonUtil {
     public static  int noOfCores(){
         return Runtime.getRuntime().availableProcessors();
     }
+
+    public static void main(String[] args) {
+        var cores = noOfCores();
+        log("no of cores : "+ cores);
+    }
 }
