@@ -18,7 +18,6 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ProductServiceStructuredConcurrencyTest {
 
-
     /*
     ProductInfoService productInfoService = Mockito.spy(ProductInfoService.class);
     ReviewService reviewService = Mockito.spy(ReviewService.class);
@@ -67,6 +66,7 @@ class ProductServiceStructuredConcurrencyTest {
         assertNotNull(product);
         assertNotNull(product.productInfo());
         assertNotNull(product.reviews());
+        assertNotNull(product.deliveryDetails());
 
     }
 }
