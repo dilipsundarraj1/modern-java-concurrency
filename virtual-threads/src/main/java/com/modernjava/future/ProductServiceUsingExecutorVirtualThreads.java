@@ -6,7 +6,6 @@ import com.modernjava.domain.ProductInfo;
 import com.modernjava.domain.Reviews;
 import com.modernjava.service.ProductInfoService;
 import com.modernjava.service.ReviewService;
-import com.modernjava.util.LoggerUtil;
 
 import java.util.concurrent.*;
 
@@ -33,17 +32,6 @@ public class ProductServiceUsingExecutorVirtualThreads {
         //Review review = reviewFuture.get(2, TimeUnit.SECONDS);
 
         return new Product(productId, productInfo, reviews);
-    }
-
-    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
-
-        ProductInfoService productInfoService = new ProductInfoService();
-        ReviewService reviewService = new ReviewService();
-        ProductServiceUsingExecutorVirtualThreads productService = new ProductServiceUsingExecutorVirtualThreads(productInfoService, reviewService);
-        String productId = "ABC123";
-        Product product = productService.retrieveProductDetails(productId);
-        LoggerUtil.log("Product is " + product);
-        executorService.shutdown();
     }
 
 }
