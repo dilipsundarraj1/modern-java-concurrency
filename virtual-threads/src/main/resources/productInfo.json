@@ -1,0 +1,14 @@
+{
+  "productId": 1234,
+  "productOptions": [{
+    "size": "64GB",
+    "color": "black",
+    "price": 699.99
+  },
+    {
+      "size": "512GB",
+      "color": "black",
+      "price": 999.99
+    }
+  ]
+}

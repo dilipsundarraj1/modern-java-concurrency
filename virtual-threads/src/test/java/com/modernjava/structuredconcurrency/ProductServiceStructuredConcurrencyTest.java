@@ -4,12 +4,14 @@ import com.modernjava.service.DeliveryService;
 import com.modernjava.service.ProductInfoService;
 import com.modernjava.service.ReviewService;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static com.modernjava.util.LoggerUtil.log;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -66,6 +68,19 @@ class ProductServiceStructuredConcurrencyTest {
         assertNotNull(product);
         assertNotNull(product.productInfo());
         assertNotNull(product.reviews());
+        assertNotNull(product.deliveryDetails());
+
+    }
+
+    @Test
+    @Disabled
+    void retrieveProductDetailsHttp() {
+        var product = productServiceStructuredConcurrency.retrieveProductDetailsHttp("ABC");
+        log("product : "+product);
+        assertNotNull(product);
+        assertNotNull(product.productInfo());
+        assertNotNull(product.reviews());
+        assertEquals(4.9, product.reviews().overallRating());
         assertNotNull(product.deliveryDetails());
 
     }
