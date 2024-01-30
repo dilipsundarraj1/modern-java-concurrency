@@ -1,9 +1,10 @@
 package com.modernjava.service;
 
-import com.domain.ProductInfo;
-import com.domain.ProductOption;
-import com.util.CommonUtil;
-import com.util.LoggerUtil;
+
+import com.modernjava.domain.ProductInfo;
+import com.modernjava.domain.ProductOption;
+import com.modernjava.util.CommonUtil;
+import com.modernjava.util.LoggerUtil;
 
 import java.util.List;
 import java.util.concurrent.StructuredTaskScope;

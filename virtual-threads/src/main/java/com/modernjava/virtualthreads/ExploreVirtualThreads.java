@@ -1,8 +1,9 @@
 package com.modernjava.virtualthreads;
 
-import com.util.CommonUtil;
 
-import static com.util.LoggerUtil.log;
+import com.modernjava.util.CommonUtil;
+
+import static com.modernjava.util.LoggerUtil.log;
 
 public class ExploreVirtualThreads {
 

@@ -1,9 +1,10 @@
 package com.modernjava.service;
 
-import com.domain.DeliveryDetails;
-import com.domain.DeliveryOptionEnum;
-import com.domain.ProductInfo;
-import com.util.CommonUtil;
+
+import com.modernjava.domain.DeliveryDetails;
+import com.modernjava.domain.DeliveryOptionEnum;
+import com.modernjava.domain.ProductInfo;
+import com.modernjava.util.CommonUtil;
 
 import java.util.List;
 

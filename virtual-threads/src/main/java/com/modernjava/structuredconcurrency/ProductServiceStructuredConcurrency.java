@@ -1,10 +1,11 @@
 package com.modernjava.structuredconcurrency;
 
-import com.domain.Product;
-import com.domain.ProductV2;
-import com.service.DeliveryService;
-import com.service.ProductInfoService;
-import com.service.ReviewService;
+
+import com.modernjava.domain.Product;
+import com.modernjava.domain.ProductV2;
+import com.modernjava.service.DeliveryService;
+import com.modernjava.service.ProductInfoService;
+import com.modernjava.service.ReviewService;
 
 import java.util.concurrent.StructuredTaskScope;
 

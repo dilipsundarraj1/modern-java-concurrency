@@ -1,8 +1,8 @@
 package com.modernjava.service;
 
-import com.domain.Reviews;
-import com.util.CommonUtil;
-import com.util.LoggerUtil;
+import com.modernjava.domain.Reviews;
+import com.modernjava.util.CommonUtil;
+import com.modernjava.util.LoggerUtil;
 
 public class ReviewService {
 

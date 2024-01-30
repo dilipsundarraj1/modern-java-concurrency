@@ -1,11 +1,12 @@
 package com.modernjava.completablefuture;
 
-import com.domain.Product;
-import com.domain.ProductInfo;
-import com.domain.Reviews;
-import com.service.ProductInfoService;
-import com.service.ReviewService;
-import com.util.LoggerUtil;
+
+import com.modernjava.domain.Product;
+import com.modernjava.domain.ProductInfo;
+import com.modernjava.domain.Reviews;
+import com.modernjava.service.ProductInfoService;
+import com.modernjava.service.ReviewService;
+import com.modernjava.util.LoggerUtil;
 
 import java.util.concurrent.CompletableFuture;
 

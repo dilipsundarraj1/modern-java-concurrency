@@ -18,6 +18,11 @@ dependencies {
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.2.4'
 }
 
+tasks.withType(JavaCompile).each {
+    it.options.compilerArgs.add('--enable-preview')
+}
+
 test {
     useJUnitPlatform()
+    jvmArgs(["--enable-preview"])
 }

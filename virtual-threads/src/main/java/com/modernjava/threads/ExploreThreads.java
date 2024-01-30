@@ -1,8 +1,7 @@
 package com.modernjava.threads;
 
-import com.util.CommonUtil;
-
-import static com.util.LoggerUtil.log;
+import com.modernjava.util.CommonUtil;
+import static com.modernjava.util.LoggerUtil.log;
 
 public class ExploreThreads {
     public static void doSomeWork() {

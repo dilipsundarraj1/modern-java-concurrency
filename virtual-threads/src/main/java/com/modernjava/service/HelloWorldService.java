@@ -1,6 +1,7 @@
 package com.modernjava.service;
 
-import com.util.CommonUtil;
+
+import com.modernjava.util.CommonUtil;
 
 public class HelloWorldService {
 

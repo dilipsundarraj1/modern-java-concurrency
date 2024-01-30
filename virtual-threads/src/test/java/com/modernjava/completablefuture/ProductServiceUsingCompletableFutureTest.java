@@ -1,8 +1,8 @@
 package com.modernjava.completablefuture;
 
-import com.domain.Product;
-import com.service.ProductInfoService;
-import com.service.ReviewService;
+import com.modernjava.domain.Product;
+import com.modernjava.service.ProductInfoService;
+import com.modernjava.service.ReviewService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

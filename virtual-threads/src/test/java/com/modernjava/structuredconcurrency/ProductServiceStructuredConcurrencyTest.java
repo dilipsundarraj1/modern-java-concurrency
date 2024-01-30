@@ -1,8 +1,8 @@
 package com.modernjava.structuredconcurrency;
 
-import com.service.DeliveryService;
-import com.service.ProductInfoService;
-import com.service.ReviewService;
+import com.modernjava.service.DeliveryService;
+import com.modernjava.service.ProductInfoService;
+import com.modernjava.service.ReviewService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
