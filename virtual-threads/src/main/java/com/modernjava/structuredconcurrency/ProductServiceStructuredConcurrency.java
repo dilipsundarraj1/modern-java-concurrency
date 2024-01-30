@@ -73,6 +73,8 @@ public class ProductServiceStructuredConcurrency {
             scope.join();
             var deliveryDetails = deliveryDetailsTask.get();
 
+
+
             return new ProductV2(productId, productInfo, reviews,
                     deliveryDetails);
         } catch (InterruptedException e) {
