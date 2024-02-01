@@ -1,0 +1,14 @@
+server:
+  tomcat:
+    threads:
+      max: 10
+spring:
+  threads:
+    virtual:
+      enabled: true
+#logging:
+#  level:
+#    web: debug
+#    org:
+#      springframework:
+#        web.client.RestClient: DEBUG

@@ -10,6 +10,7 @@ This repo has the code for modern java.
 - Install "ab - Apache HTTP server benchmarking tool"
   - [Mac Installation](#install-ab-on-mac)
   - [Windows Installation](#install-ab-on-windows)
+- [Spring Boot using Virtual Threads](#spring-boot-using-virtual-threads)
 
 ## Java Installation using Installer
 
@@ -49,3 +50,29 @@ sdk install 21.0.1-tem
 ### Install ab on windows
 - Follow the instructions in the below link to understand more.
  - https://www.inmotionhosting.com/support/edu/wordpress/performance/stress-test-with-apachebench/#test
+
+## Spring Boot using Virtual Threads
+
+### application.yml
+
+- Add the below config in the application.yml
+
+```yml
+spring:
+  threads:
+    virtual:
+      enabled: true
+```
+
+### Validate virual threads are enabled
+
+- Run the below command to check the thread executing the request
+
+```curl
+curl -i http://localhost:8080/currentThread  
+```
+
+
+```curl
+curl -i  http://localhost:8080/blocking/1
+```

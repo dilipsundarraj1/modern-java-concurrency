@@ -1,7 +1,5 @@
 server:
-  tomcat:
-    threads:
-      max: 10
+  port: 8085
 spring:
   threads:
     virtual:

@@ -1,6 +1,0 @@
-server:
-  port: 8085
-#spring:
-#  threads:
-#    virtual:
-#      enabled: true

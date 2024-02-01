@@ -1,4 +1,4 @@
 rootProject.name = 'modern-java-concurrency'
 include 'virtual-threads'
-include 'blocking-service'
-include 'springboot-virtual-threads'
+include 'remote-service'
+include 'clientbootapp-virtual-threads'
