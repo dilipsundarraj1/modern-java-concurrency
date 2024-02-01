@@ -9,6 +9,10 @@ repositories {
     mavenCentral()
 }
 
+java {
+    sourceCompatibility = "$javaVersion"
+}
+
 dependencies {
 
 
