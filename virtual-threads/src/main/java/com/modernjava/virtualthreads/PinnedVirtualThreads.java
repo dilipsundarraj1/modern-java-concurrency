@@ -16,8 +16,8 @@ public class PinnedVirtualThreads {
         int MAX_THREADS = 10;
         IntStream.rangeClosed(1, MAX_THREADS)
                 .forEach((i) -> {
-                    //Thread.ofVirtual().start(() -> counter.getAndIncrement(i));
-                    Thread.ofVirtual().start(() -> counter.getAndIncrementUsingRentrantLock(i));
+                    Thread.ofVirtual().start(() -> counter.getAndIncrement(i));
+                    //Thread.ofVirtual().start(() -> counter.getAndIncrementUsingRentrantLock(i));
                     atomicInteger.incrementAndGet();
                     log("No of threads : " + atomicInteger.get());
                 });
