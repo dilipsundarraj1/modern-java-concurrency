@@ -21,21 +21,6 @@ public class MaxThreads {
     }
 
     public static void main(String[] args) {
-        int MAX_THREADS =10000;
-        // For 1024 MB
-        // Run with this thread count and show the outOfMemory error -> 1000, 5000, 10000
-        //java.lang.OutOfMemoryError -> at Thread-8171
-
-        //int MAX_THREADS = 10;
-        //Demo 2- Blocking nature of Java Threads
-        // Change the no of MAX_THREADS to 10
-        // Enable the loggers
-        IntStream.rangeClosed(1, MAX_THREADS)
-                .forEach((i) -> {
-                    var threads = Thread.ofPlatform().start(() -> MaxThreads.doSomeWork(i));
-                    atomicInteger.incrementAndGet();
-                    log("No of threads : " + atomicInteger.get());
-                });
 
         log("Program Completed!");
 

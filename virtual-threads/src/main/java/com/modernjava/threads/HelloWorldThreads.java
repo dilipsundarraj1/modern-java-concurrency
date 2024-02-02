@@ -18,18 +18,7 @@ public class HelloWorldThreads {
 
     public static void main(String[] args) throws InterruptedException {
 
-        //Starting the thread
-        var helloThread = Thread.ofPlatform().name("t1")
-                .start(HelloWorldThreads::hello);
-        var worldThread = Thread.ofPlatform().name("t2")
-                .start(HelloWorldThreads::world);
-
-
-        //Joining the thread (Waiting for the threads to finish)
-        helloThread.join();
-        worldThread.join();
-
-        System.out.println("Result is : " + result);
+        // We would like to get the output as "HelloWorld"
 
     }
 }
