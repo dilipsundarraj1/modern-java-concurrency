@@ -32,14 +32,14 @@ public class MaxVirtualThreads {
         // Enable the loggers
         IntStream.rangeClosed(1, MAX_THREADS)
                 .forEach((i) -> {
-                    var threads = Thread.ofPlatform().start(() -> MaxVirtualThreads.doSomeWork(i));
+                    var threads = Thread.ofVirtual().start(() -> MaxVirtualThreads.doSomeWork(i));
                     atomicInteger.incrementAndGet();
                     log("No of threads : " + atomicInteger.get());
                 });
 
         log("Program Completed!");
 
-        CommonUtil.sleep(10000);
+       // CommonUtil.sleep(10000);
 
     }
 }
