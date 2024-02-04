@@ -19,42 +19,17 @@ public class ProductServiceUsingCompletableFuture {
         this.reviewService = reviewService;
     }
 
-
     public Product retrieveProductDetails(String productId) {
 
+        //Calls are asynchronous
         CompletableFuture<ProductInfo> cfProductInfo = CompletableFuture.supplyAsync(() -> productInfoService.retrieveProductInfo(productId));
         CompletableFuture<Reviews> cfReview = CompletableFuture.supplyAsync(() -> reviewService.retrieveReviews(productId));
 
-        return cfProductInfo
-                .thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review))
-                .join();
-    }
-
-    public Product retrieveProductDetails_exceptionhandling(String productId) {
-
-        CompletableFuture<ProductInfo> cfProductInfo = CompletableFuture.supplyAsync(() -> productInfoService.retrieveProductInfo(productId));
-        CompletableFuture<Reviews> cfReview = CompletableFuture.supplyAsync(() -> reviewService.retrieveReviews(productId));
-
-        return cfProductInfo
-                .whenComplete((productInfo, throwable) -> {
-                    if (throwable != null) {
-                        LoggerUtil.log("Exception Occurred in the productInfoCall " + throwable.getMessage());
-                        throw new RuntimeException(throwable.getMessage());
-                    }
+        //Functional and Call back based
+        return CompletableFuture.allOf(cfProductInfo, cfReview)
+                .thenApply(v -> {
+                    return new Product(productId, cfProductInfo.join(), cfReview.join());
                 })
-                .thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review))
-                .whenComplete((product, throwable) -> {
-                    if(throwable!=null){
-                        LoggerUtil.log("Exception Occurred in the reviews " + throwable.getMessage());
-                        throw new RuntimeException(throwable.getMessage());
-                    }
-                })
-//                .exceptionally(throwable -> {
-//                    LoggerUtil.log("Exception Occurred in the reviews " + throwable.getMessage());
-//                    var reviews = new Reviews(0, 0.0);
-//                    var productInfo = cfProductInfo.join();
-//                    return new Product( productId, productInfo, reviews);
-//                })
                 .join();
     }
 
@@ -66,6 +41,27 @@ public class ProductServiceUsingCompletableFuture {
         return cfProductInfo
                 .thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review));
     }
+
+    public Product retrieveProductDetails_exceptionhandling(String productId) {
+        CompletableFuture<ProductInfo> cfProductInfo = CompletableFuture.supplyAsync(() -> productInfoService.retrieveProductInfo(productId));
+        CompletableFuture<Reviews> cfReview = CompletableFuture.supplyAsync(() -> reviewService.retrieveReviews(productId));
+
+        return CompletableFuture.allOf(cfProductInfo, cfReview)
+//                .whenComplete((unused, throwable) -> {
+//                    if (throwable != null) {
+//                        LoggerUtil.log("Exception Occurred in the business logic " + throwable.getMessage());
+//                        throw new RuntimeException(throwable.getMessage());
+//                    }
+//                })
+                .exceptionally(throwable -> {
+                    LoggerUtil.log("Exception Occurred in the business logic " + throwable.getMessage());
+                    throw new RuntimeException(throwable);
+                })
+                .thenApply(v -> new Product(productId, cfProductInfo.join(), cfReview.join()))
+                .join();
+    }
+
+
 
 
     public static void main(String[] args) {

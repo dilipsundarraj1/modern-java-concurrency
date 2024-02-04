@@ -53,7 +53,7 @@ class ProductServiceUsingCompletableFutureTest {
 
         //when and then
         var exception = Assertions.assertThrows(CompletionException.class, () -> productServiceUsingCF.retrieveProductDetails_exceptionhandling(productId));
-        assertEquals("java.lang.RuntimeException: Exception Occurred in ProductInfo", exception.getMessage());
+        assertTrue( exception.getMessage().contains("Exception Occurred in ProductInfo"));
 
     }
 
@@ -66,7 +66,7 @@ class ProductServiceUsingCompletableFutureTest {
 
         //when and then
         var exception = Assertions.assertThrows(CompletionException.class, () -> productServiceUsingCF.retrieveProductDetails_exceptionhandling(productId));
-        assertEquals("java.lang.RuntimeException: Exception Occurred in Reviews", exception.getMessage());
+        assertTrue( exception.getMessage().contains("Exception Occurred in Reviews"));
 
     }
 
