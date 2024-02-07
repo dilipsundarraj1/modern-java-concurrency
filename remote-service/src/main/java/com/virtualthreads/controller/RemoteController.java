@@ -19,10 +19,9 @@ public class RemoteController {
     AtomicInteger atomicInteger= new AtomicInteger();
     @GetMapping("/{seconds}")
     public ResponseEntity<String> block(@PathVariable("seconds") Integer seconds) throws InterruptedException {
-        Thread.sleep(seconds*1000);
-        log.info("Sleep Complete");
+        Thread.sleep(seconds*1000); // Blocks the tomcat-thread for n seconds
         var invokeCount = atomicInteger.incrementAndGet();
         log.info("invokeCount : {} " ,  invokeCount);
-        return ResponseEntity.ok("Hello");
+        return ResponseEntity.ok("Hello, delayed by "+ seconds + " seconds.");
     }
 }
