@@ -2,10 +2,10 @@ server:
   tomcat:
     threads:
       max: 10
-spring:
-  threads:
-    virtual:
-      enabled: true
+#spring:
+#  threads:
+#    virtual:
+#      enabled: true
 #logging:
 #  level:
 #    web: debug
