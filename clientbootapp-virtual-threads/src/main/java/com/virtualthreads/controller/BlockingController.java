@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BlockingController {
-
-    private static final Logger log = LoggerFactory.getLogger(BlockingController.class);
+    private static final Logger log = LoggerFactory.getLogger(RemoteServiceClient.class);
 
     private final RemoteServiceClient remoteServiceClient;
 
@@ -20,14 +19,4 @@ public class BlockingController {
         this.remoteServiceClient = remoteServiceClient;
     }
 
-    @GetMapping("/blocking/{seconds}")
-    public ResponseEntity<String> block(@PathVariable("seconds") Integer seconds) throws InterruptedException {
-        log.info("Received the request with seconds : {} ", seconds);
-        return  ResponseEntity.ok(remoteServiceClient.invokeBlockingService(seconds));
-    }
-
-    @GetMapping("/currentThread")
-    public String currentThread() {
-        return  Thread.currentThread().toString();
-    }
 }
