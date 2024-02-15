@@ -21,11 +21,6 @@ public class ReviewService {
     }
 
     public Reviews retrieveReviewsHttp(String productId) throws IOException, InterruptedException {
-        var httpClient = CommonUtil.httpClient;
-        var httpRequest = requestBuilder(REVIEWS_URL);
-        HttpResponse<String> response =
-                httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        System.out.println("Status code: " + response.statusCode());
-        return objectMapper.readValue(response.body(), Reviews.class);
+       return null;
     }
 }

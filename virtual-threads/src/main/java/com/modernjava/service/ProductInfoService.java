@@ -22,14 +22,7 @@ public class ProductInfoService {
 
 
     public ProductInfo retrieveProductInfoHttp(String productId) throws IOException, InterruptedException {
-        var httpClient = CommonUtil.httpClient;
-        var httpRequest = requestBuilder(PRODUCT_INFO_URL);
-
-        HttpResponse<String> response =
-                httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-
-        System.out.println("Status code: " + response.statusCode());
-        return objectMapper.readValue(response.body(), ProductInfo.class);
+      return null;
 
     }
 
