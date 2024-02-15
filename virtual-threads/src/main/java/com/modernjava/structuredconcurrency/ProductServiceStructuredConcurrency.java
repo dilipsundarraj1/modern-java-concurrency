@@ -12,18 +12,18 @@ public class ProductServiceStructuredConcurrency {
 
     private final ProductInfoService productInfoService;
     private final ReviewService reviewService;
-    private final DeliveryService deliveryService;
+    //private final DeliveryService deliveryService;
 
     public ProductServiceStructuredConcurrency(ProductInfoService productInfoService, ReviewService reviewService, DeliveryService deliveryService) {
         this.productInfoService = productInfoService;
         this.reviewService = reviewService;
-        this.deliveryService = deliveryService;
+        //this.deliveryService = deliveryService;
     }
 
     public ProductServiceStructuredConcurrency(ProductInfoService productInfoService, ReviewService reviewService) {
         this.productInfoService = productInfoService;
         this.reviewService = reviewService;
-        this.deliveryService = null;
+        //this.deliveryService = null;
     }
 
 

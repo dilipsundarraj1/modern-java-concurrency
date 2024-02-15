@@ -34,8 +34,8 @@ class ProductServiceStructuredConcurrencyTest {
     @Spy
     ReviewService reviewService;
 
-    @Spy
-    DeliveryService deliveryService;
+//    @Spy
+//    DeliveryService deliveryService;
 
     @InjectMocks
     ProductServiceStructuredConcurrency productServiceStructuredConcurrency;
