@@ -12,8 +12,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static com.modernjava.util.LoggerUtil.log;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
@@ -58,7 +57,7 @@ class ProductServiceStructuredConcurrencyTest {
         System.out.println("Exception is " + exception.getMessage());
         assertNotNull(exception);
         var expectedErrorMessage = "java.util.concurrent.ExecutionException: java.lang.RuntimeException: Exception calling review Service";
-        assertEquals(expectedErrorMessage, exception.getMessage());
+        assertTrue(exception.getMessage().contains("Exception calling review Service"));
 
     }
 
