@@ -53,17 +53,4 @@ public class ProductInfoService {
         return new ProductInfo(productId, productOptions);
     }
 
-    public ProductInfo retrieveProductInfo_MultipleSources(String productId) {
-
-        try (var scope = new StructuredTaskScope.ShutdownOnSuccess<ProductInfo>()) {
-            scope.fork(() -> retrieveProductInfo(productId));
-            scope.fork(() -> retrieveProductInfoV2(productId));
-            scope.fork(() -> retrieveProductInfoV3(productId));
-
-            return scope.join().result();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 }
