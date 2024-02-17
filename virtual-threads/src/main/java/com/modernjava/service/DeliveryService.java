@@ -28,7 +28,12 @@ public class DeliveryService {
     }
 
     public DeliveryDetails retrieveDeliveryInfoHttp(ProductInfo productInfo) throws IOException, InterruptedException {
-      return null;
+        var httpClient = CommonUtil.httpClient;
+        var httpRequest = requestBuilder(DELIVERY_DETAILS_URL);
+        HttpResponse<String> response =
+                httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        System.out.println("Status code: " + response.statusCode());
+        return objectMapper.readValue(response.body(), DeliveryDetails.class);
 
     }
 }
