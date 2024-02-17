@@ -93,19 +93,17 @@ public class ProductServiceStructuredConcurrency {
             var reviewsSubtask = scope.fork(()->reviewService.retrieveReviewsHttp(productId));
 
             //Join
-            scope.join(); // This is completely nonblocking and join completes when the subtasks completes
+            scope.join().throwIfFailed(); // This is completely nonblocking and join completes when the subtasks completes
             var productInfo = productInfoSubtask.get();
             var reviews = reviewsSubtask.get();
 
             var deliveryDetailsTask = scope.fork(()->deliveryService.retrieveDeliveryInfoHttp(productInfo));
-            scope.join();
+            scope.join().throwIfFailed();
             var deliveryDetails = deliveryDetailsTask.get();
-
-
 
             return new ProductV2(productId, productInfo, reviews,
                     deliveryDetails);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

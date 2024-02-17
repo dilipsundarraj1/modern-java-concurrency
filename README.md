@@ -7,12 +7,12 @@ This repo has the code for modern java.
 - Java Installation
   - [Java Installation using Installer](#java-installation-using-installer)
   - [Java Installation using sdkman](#install-java-using-sdk-man)
+- [Spring Boot using Virtual Threads](#spring-boot-using-virtual-threads)
+  - [Remote Service](#remote-service)
 - Install "ab - Apache HTTP server benchmarking tool"
   - [Mac Installation](#install-ab-on-mac)
   - [Windows Installation](#install-ab-on-windows)
-- [Spring Boot using Virtual Threads](#spring-boot-using-virtual-threads)
-  - [Remote Service](#remote-service)
-  - [Benchmarking with "ab - Apache HTTP server benchmarking tool"](#benchmarking-with-ab---apache-http-server-benchmarking-tool)
+- [Benchmarking with "ab - Apache HTTP server benchmarking tool"](#benchmarking-with-ab---apache-http-server-benchmarking-tool)
     - [Benchmark with 10 requests with the 10 concurrent users ](#benchmark-with-10-requests-with-the-10-concurrent-users-)
     - [Benchmark with 20 requests with the 10 concurrent users](#benchmark-with-20-requests-with-the-10-concurrent-users)
     - [Benchmark with 60 requests with the 20 concurrent users](#benchmark-with-60-requests-with-the-20-concurrent-users)
@@ -48,13 +48,7 @@ sdk list java | grep '21'
 sdk install 21.0.1-tem
 ```
 
-## Install "ab - Apache HTTP server benchmarking tool"
 
-### Install ab on mac
-
-### Install ab on windows
-- Follow the instructions in the below link to understand more.
- - https://www.inmotionhosting.com/support/edu/wordpress/performance/stress-test-with-apachebench/#test
 
 ## Spring Boot using Virtual Threads
 
@@ -90,6 +84,14 @@ curl -i  http://localhost:8080/blocking/1
 ```
 
 ## Benchmarking with "ab - Apache HTTP server benchmarking tool"
+
+## Install "ab - Apache HTTP server benchmarking tool"
+
+### Install ab on mac
+
+### Install ab on windows
+- Follow the instructions in the below link to understand more.
+- https://www.inmotionhosting.com/support/edu/wordpress/performance/stress-test-with-apachebench/#test
 
 ### Set Up
 

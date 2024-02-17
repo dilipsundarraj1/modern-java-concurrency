@@ -30,7 +30,8 @@ class ProductInfoServiceTest {
     @Test
     void retrieveProductInfo_simulateError() {
         // In this case, the time it takes is close to the first task which completes in 1 second.
-        when(productInfoService.retrieveProductInfo(anyString())).thenThrow(new RuntimeException("Exception Occurred!"));
+        when(productInfoService.retrieveProductInfo(anyString()))
+                .thenThrow(new RuntimeException("Exception Occurred!"));
         var productInfo = productInfoService.retrieveProductInfo_MultipleSources("ABC");
         assertNotNull(productInfo);
 
